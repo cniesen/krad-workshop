@@ -122,6 +122,7 @@
   <bean id="ksbConfigurer" class="org.kuali.rice.ksb.messaging.config.KSBConfigurer" />
     <bean id="kradConfigurer" class="org.kuali.rice.krad.config.KRADConfigurer" />
     <bean id="kimConfigurer" class="org.kuali.rice.kim.config.KIMConfigurer" />
+    <bean id="kenConfigurer" class="org.kuali.rice.ken.impl.config.KENConfigurer" />
     <bean id="coreServiceConfigurer" class="org.kuali.rice.coreservice.impl.config.CoreServiceConfigurer" />
 
     <bean id="kewConfigurer" class="org.kuali.rice.kew.config.KEWConfigurer" />
