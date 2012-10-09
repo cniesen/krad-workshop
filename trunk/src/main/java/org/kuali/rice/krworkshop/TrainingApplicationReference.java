@@ -18,48 +18,45 @@ package org.kuali.rice.krworkshop;
 import java.io.Serializable;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Brian
- * Date: 10/3/12
- * Time: 10:11 AM
- * To change this template use File | Settings | File Templates.
+ * Created with IntelliJ IDEA. User: Brian Date: 10/3/12 Time: 10:11 AM To
+ * change this template use File | Settings | File Templates.
  */
 public class TrainingApplicationReference implements Serializable {
-    private static final long serialVersionUID = -7525378097732916410L;
-    private String name;
-    private String phone;
-    private String address;
-    private String relationship;
+	private static final long serialVersionUID = -7525378097732916410L;
+	private String name;
+	private String phone;
+	private String address;
+	private String relationship;
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getPhone() {
-        return phone;
-    }
+	public String getPhone() {
+		return phone;
+	}
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 
-    public String getAddress() {
-        return address;
-    }
+	public String getAddress() {
+		return address;
+	}
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
-    public String getRelationship() {
-        return relationship;
-    }
+	public String getRelationship() {
+		return relationship;
+	}
 
-    public void setRelationship(String relationship) {
-        this.relationship = relationship;
-    }
+	public void setRelationship(String relationship) {
+		this.relationship = relationship;
+	}
 }

@@ -27,6 +27,7 @@ public class TrainingApplicationForm extends UifFormBase {
     private String term;
     private String college;
     private String campus;
+    private String schoolColor;
 
     private String firstName;
     private String lastName;
@@ -43,9 +44,9 @@ public class TrainingApplicationForm extends UifFormBase {
     private String state;
     private String zip;
 
-    private String schoolColor;
-    
     private List<TrainingApplicationReference> references = new ArrayList<TrainingApplicationReference>();
+
+    private List<TrainingApplicationPreviousEducation> previousEducation = new ArrayList<TrainingApplicationPreviousEducation>();
 
     public String getTerm() {
         return term;
@@ -175,14 +176,6 @@ public class TrainingApplicationForm extends UifFormBase {
         this.zip = zip;
     }
 
-    public String getSchoolColor() {
-        return schoolColor;
-    }
-
-    public void setSchoolColor(String schoolColor) {
-        this.schoolColor = schoolColor;
-    }
-
     public List<TrainingApplicationReference> getReferences() {
         return references;
     }
@@ -190,4 +183,22 @@ public class TrainingApplicationForm extends UifFormBase {
     public void setReferences(List<TrainingApplicationReference> references) {
         this.references = references;
     }
+
+    public List<TrainingApplicationPreviousEducation> getPreviousEducation() {
+        return previousEducation;
+    }
+
+    public void setPreviousEducation(List<TrainingApplicationPreviousEducation> previousEducation) {
+        this.previousEducation = previousEducation;
+    }
+
+	public String getSchoolColor() {
+		return schoolColor;
+	}
+
+	public void setSchoolColor(String schoolColor) {
+		this.schoolColor = schoolColor;
+	}
+    
+    
 }
