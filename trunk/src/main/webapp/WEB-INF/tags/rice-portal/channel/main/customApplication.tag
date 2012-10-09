@@ -26,9 +26,8 @@ This file contains custom application specific portal content.
 <div class="body">
 
   <ul class="chan">
-      <li>insert custom content here</li>
-      <li><a class="portal_link" target="_blank" href="${ConfigProperties.application.url}/kr-krad/my-test-page?viewId=CollegeApplicationView&methodToCall=start" />My Test Page</a></li>
-      <li><portal:portalLink displayTitle="true" title="CollegeApplicationView" url="${ConfigProperties.application.url}/kr-krad/my-test-page?viewId=CollecApplicationView&methodToCall=start" /></li>
+      <li><a class="portal_link" target="_blank" href="${ConfigProperties.application.url}/kr-krad/collegeapp?viewId=Training-CollegeApplicationView&methodToCall=start" />Kuali University - Apply Now!</a></li>
+      <li><a class="portal_link" target="_blank" href="${ConfigProperties.application.url}/kr-krad/my-test-page?viewId=CollegeApplicationView&methodToCall=start" />Very Dull Test Page</a></li>
   </ul>
 
 </div>
