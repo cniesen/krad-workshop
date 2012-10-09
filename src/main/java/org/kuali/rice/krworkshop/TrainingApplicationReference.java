@@ -15,6 +15,8 @@
  */
 package org.kuali.rice.krworkshop;
 
+import java.io.Serializable;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Brian
@@ -22,7 +24,7 @@ package org.kuali.rice.krworkshop;
  * Time: 10:11 AM
  * To change this template use File | Settings | File Templates.
  */
-public class TrainingApplicationReference {
+public class TrainingApplicationReference implements Serializable {
     private static final long serialVersionUID = -7525378097732916410L;
     private String name;
     private String phone;
