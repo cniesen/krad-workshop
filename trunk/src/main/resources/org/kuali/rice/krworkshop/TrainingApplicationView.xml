@@ -18,8 +18,11 @@
 -->
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-                           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+                           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                           http://www.springframework.org/schema/util
+                           http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
   <!--
   ********************************************************************************************************************
@@ -141,6 +144,16 @@
                   </bean>
                 </list>
               </property>
+            </bean>
+          </property>
+        </bean>
+        
+        <bean parent="Uif-InputField-LabelTop" p:label="Affiliate" p:propertyName="schoolColor" >
+          <property name="control">
+            <bean parent="Uif-DropdownControl" p:options-ref="school-color-options" 
+             p:onChangeScript="var c=jq(this).val();
+					jq('#'+'Training-CollegeApplicationView').animate({backgroundColor: c},100);
+					jq(this).animate({backgroundColor: c },1000);">
             </bean>
           </property>
         </bean>
@@ -311,5 +324,15 @@
       </list>
     </property>
   </bean>
+  <util:list id="school-color-options">
+    <bean parent="Uif-KeyLabelPair" p:key="white" p:value="none"/>
+    <bean parent="Uif-KeyLabelPair" p:key="#cc5500" p:value="University of Texas"/>
+    <bean parent="Uif-KeyLabelPair" p:key="#A71930" p:value="Iowa State"/>
+    <bean parent="Uif-KeyLabelPair" p:key="#18453B" p:value="Michigan State"/>
+    <bean parent="Uif-KeyLabelPair" p:key="#228B22" p:value="Colorado State"/>
+    <bean parent="Uif-KeyLabelPair" p:key="#7D110C" p:value="Indiana University"/>
+    <bean parent="Uif-KeyLabelPair" p:key="#024731" p:value="University of Hawaii"/>
+    <bean parent="Uif-KeyLabelPair" p:key="#6A7F10" p:value="Portland State"/>       
+  </util:list>
 
 </beans>
