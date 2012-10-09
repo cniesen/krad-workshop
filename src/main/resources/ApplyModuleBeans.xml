@@ -62,6 +62,7 @@
     <property name="dataDictionaryPackages">
       <list>
         <value>classpath:org/kuali/rice/krworkshop/TestApplicationView.xml</value>
+        <value>classpath:org/kuali/rice/krworkshop/TrainingApplicationView.xml</value>
       </list>
     </property>
     <property name="databaseRepositoryFilePaths">
