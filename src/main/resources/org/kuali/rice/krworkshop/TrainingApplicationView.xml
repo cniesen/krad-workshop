@@ -41,11 +41,9 @@
     <property name="theme">
       <bean parent="Uif-KradTheme"/>
     </property>
-    <property name="footer.items">
+    <property name="additionalScriptFiles">
       <list>
-        <bean parent="Uif-PrimaryActionButton" p:actionLabel="Submit" p:methodToCall="submit"
-              p:performClientSideValidation="true"/>
-        <bean parent="Uif-SecondaryActionButton" p:actionLabel="Clear all" p:actionScript="clearAll()"/>
+        <value>js/application.js</value>
       </list>
     </property>
   </bean>
@@ -66,6 +64,7 @@
         <bean parent="Training-StudentInfo"/>
         <bean parent="Training-StudentAddress"/>
         <bean parent="Training-StudentReferences"/>
+        <bean parent="Training-PreviousEducation"/>
         <bean parent="Uif-Message">
           <property name="messageText"
                     value="Click [0] to get a full list of additional documents required."/>
@@ -76,6 +75,20 @@
           </property>
         </bean>
       </list>
+    </property>
+    <property name="footer">
+      <bean parent="Uif-FooterBase">
+        <property name="items">
+          <list>
+            <bean parent="Uif-PrimaryActionButton" p:render="@{!#view.readOnly}"
+                  p:actionLabel="Submit" p:methodToCall="submit"
+                  p:performClientSideValidation="true" p:preSubmitCall="return confirm('Submit?');"
+                  p:successCallback="alert('Submit Successful')"/>
+            <bean parent="Uif-ActionLink" p:render="@{!#view.readOnly}"
+                  p:actionLabel="Clear all" p:actionScript="clearAll()"/>
+          </list>
+        </property>
+      </bean>
     </property>
   </bean>
 
@@ -147,7 +160,6 @@
             </bean>
           </property>
         </bean>
-        
         <bean parent="Uif-InputField-LabelTop" p:label="Affiliate" p:propertyName="schoolColor" >
           <property name="control">
             <bean parent="Uif-DropdownControl" p:options-ref="school-color-options" 
@@ -238,6 +250,7 @@
               </property>
             </bean>
           </property>
+          <property name="readOnlyDisplayReplacement" value="@{ethnicity.toString()}"/>
         </bean>
       </list>
     </property>
@@ -292,6 +305,8 @@
     <property name="layoutManager.generateAutoSequence" value="true"/>
     <property name="propertyName" value="references"/>
     <property name="collectionObjectClass" value="org.kuali.rice.krworkshop.TrainingApplicationReference"/>
+    <property name="layoutManager.separateAddLine" value="true" />
+    <property name="layoutManager.addLineGroup.layoutManager.numberOfColumns" value="8" />
     <property name="items">
       <list>
         <bean parent="Uif-InputField" p:label="Name" p:propertyName="name" p:required="true"/>
@@ -324,6 +339,30 @@
       </list>
     </property>
   </bean>
+
+  <bean id="Training-PreviousEducation" parent="Uif-Disclosure-StackedCollectionSection">
+    <property name="headerText" value="Previous Education" />
+    <property name="collectionObjectClass" value="org.kuali.rice.krworkshop.TrainingApplicationPreviousEducation" />
+    <property name="propertyName" value="previousEducation" />
+    <property name="layoutManager.summaryTitle" value="Course" />
+    <property name="layoutManager.summaryFields" value="course,university" />
+    <property name="items">
+      <list>
+        <bean parent="Uif-InputField" p:label="University" p:propertyName="university" p:required="true"/>
+        <bean parent="Uif-InputField" p:label="College" p:propertyName="college" p:required="true"/>
+        <bean parent="Uif-InputField" p:label="Course" p:propertyName="course" p:required="true"/>
+        <bean parent="Uif-InputField" p:label="Completion Date" p:propertyName="completionDate" >
+          <property name="control">
+            <bean parent="Uif-DateControl"/>
+          </property>
+          <property name="validCharactersConstraint">
+            <bean parent="BasicDatePatternConstraint"/>
+          </property>
+        </bean>
+      </list>
+    </property>
+  </bean>
+  
   <util:list id="school-color-options">
     <bean parent="Uif-KeyLabelPair" p:key="white" p:value="none"/>
     <bean parent="Uif-KeyLabelPair" p:key="#cc5500" p:value="University of Texas"/>

@@ -41,17 +41,10 @@
     <property name="theme">
       <bean parent="Uif-KradTheme"/>
     </property>
-    <property name="footer.items">
-      <list>
-        <bean parent="Uif-PrimaryActionButton" p:actionLabel="Submit" p:methodToCall="submit"
-              p:performClientSideValidation="true"/>
-        <bean parent="Uif-SecondaryActionButton" p:actionLabel="Clear all" p:actionScript="clearAll()"/>
-      </list>
-    </property>
   </bean>
 
   <!-- Alternate version of this view, only changing the theme -->
-  <bean id="Training-CollegeApplicationView_KNS-Lab2" parent="Training-CollegeApplicationView-Lab2">
+  <bean id="Training-CollegeApplicationView_KNS-Lab2" parent="Training-CollegeApplicationView">
     <property name="theme">
       <bean parent="Uif-ClassicKnsTheme"/>
     </property>
@@ -65,16 +58,6 @@
         <bean parent="Training-CampusInfo-Lab2"/>
         <bean parent="Training-StudentInfo-Lab2"/>
         <bean parent="Training-StudentAddress-Lab2"/>
-        <bean parent="Training-StudentReferences-Lab2"/>
-        <bean parent="Uif-Message">
-          <property name="messageText"
-                    value="Click [0] to get a full list of additional documents required."/>
-          <property name="inlineComponents">
-            <list>
-              <bean parent="Uif-Link" p:href="http://www.kuali.org" p:linkText="here"/>
-            </list>
-          </property>
-        </bean>
       </list>
     </property>
   </bean>
@@ -83,7 +66,7 @@
     <property name="headerText" value="Term and College Information"/>
     <property name="items">
       <list>
-        <bean parent="Uif-InputField-LabelTop" p:label="Term" p:propertyName="term" p:required="true">
+        <bean parent="Uif-InputField-LabelTop" p:label="Term" p:propertyName="term">
           <property name="control">
             <bean parent="Uif-DropdownControl">
               <property name="options">
@@ -97,7 +80,7 @@
             </bean>
           </property>
         </bean>
-        <bean parent="Uif-InputField-LabelTop" p:label="College" p:propertyName="college" p:required="true">
+        <bean parent="Uif-InputField-LabelTop" p:label="College" p:propertyName="college">
           <property name="control">
             <bean parent="Uif-DropdownControl">
               <property name="options">
@@ -113,8 +96,7 @@
             </bean>
           </property>
         </bean>
-        <bean parent="Uif-InputField-LabelTop" p:label="Campus" p:propertyName="campus"
-              p:progressiveRender="@{#dp.college eq 'art' or #dp.college eq 'csc'}">
+        <bean parent="Uif-InputField-LabelTop" p:label="Campus" p:propertyName="campus">
           <property name="control">
             <bean parent="Uif-DropdownControl">
               <property name="options">
@@ -126,26 +108,6 @@
               </property>
             </bean>
           </property>
-          <property name="caseConstraint">
-            <bean parent="CaseConstraint">
-              <property name="propertyName" value="college"/>
-              <property name="whenConstraint">
-                <list>
-                  <bean parent="WhenConstraint">
-                    <property name="values">
-                      <list>
-                        <value>art</value>
-                        <value>csc</value>
-                      </list>
-                    </property>
-                    <property name="constraint">
-                      <bean parent="RequiredConstraint"/>
-                    </property>
-                  </bean>
-                </list>
-              </property>
-            </bean>
-          </property>
         </bean>
       </list>
     </property>
@@ -153,7 +115,7 @@
 
   <bean id="Training-StudentInfo-Lab2" parent="Uif-HorizontalBoxSection">
     <property name="headerText" value="About Me"/>
-    <property name="instructionalText" value="Please fill out this form [b]completely[/b]"/>
+    <property name="instructionalText" value="Please fill out this form completely"/>
     <property name="items">
       <list>
         <ref bean="Training-StudentInfo-Group1-Lab2"/>
@@ -170,15 +132,9 @@
             <bean parent="AlphaPatternConstraint"/>
           </property>
         </bean>
-        <bean parent="Uif-InputField" p:label="Last Name" p:propertyName="lastName" p:required="true">
-          <property name="validCharactersConstraint">
-            <bean parent="AlphaPatternConstraint"/>
-          </property>
+        <bean parent="Uif-InputField" p:label="Last Name" p:propertyName="lastName">
         </bean>
-        <bean parent="Uif-InputField" p:label="Email Address" p:propertyName="email" p:required="true">
-          <property name="validCharactersConstraint">
-            <bean parent="EmailAddressPatternConstraint"/>
-          </property>
+        <bean parent="Uif-InputField" p:label="Email Address" p:propertyName="email">
         </bean>
         <bean parent="Uif-InputField" p:propertyName="emailList">
           <property name="control">
@@ -192,7 +148,7 @@
   <bean id="Training-StudentInfo-Group2-Lab2" parent="Uif-GridGroup">
     <property name="items">
       <list>
-        <bean parent="Uif-InputField" p:label="Gender" p:propertyName="gender" p:required="true">
+        <bean parent="Uif-InputField" p:label="Gender" p:propertyName="gender">
           <property name="control">
             <bean parent="Uif-HorizontalRadioControl">
               <property name="options">
@@ -204,16 +160,13 @@
             </bean>
           </property>
         </bean>
-        <bean parent="Uif-InputField" p:label="Date of Birth" p:propertyName="dob" p:required="true">
+        <bean parent="Uif-InputField" p:label="Date of Birth" p:propertyName="dob">
           <property name="control">
             <bean parent="Uif-DateControl"/>
           </property>
-          <property name="validCharactersConstraint">
-            <bean parent="BasicDatePatternConstraint"/>
-          </property>
         </bean>
-        <bean parent="Uif-InputField" p:label="Race/Ethnicity" p:propertyName="ethnicity" p:required="true"
-              p:instructionalText="Please select the [link='http://kuali.org']ethnicity/race(s)[/link] you most closely identify yourself as">
+        <bean parent="Uif-InputField" p:label="Race/Ethnicity" p:propertyName="ethnicity"
+              p:instructionalText="Please select the ethnicity/race(s) you most closely identify yourself as">
           <property name="control">
             <bean parent="Uif-VerticalCheckboxesControl">
               <property name="options">
@@ -223,7 +176,6 @@
                   <bean parent="Uif-KeyLabelPair" p:key="asian" p:value="Asian / Pacific Islander"/>
                   <bean parent="Uif-KeyLabelPair" p:key="hispanic" p:value="Hispanic"/>
                   <bean parent="Uif-KeyLabelPair" p:key="white" p:value="Non-hispanic White"/>
-                  <bean parent="Uif-KeyLabelPair" p:key="other" p:value="Other. Specify: [id=Training-OtherEthnicity]"/>
                 </list>
               </property>
             </bean>
@@ -232,84 +184,20 @@
       </list>
     </property>
   </bean>
-
-  <bean id="Training-OtherEthnicity-Lab2" parent="Uif-InputField" p:propertyName="otherEthnicity"/>
 
   <bean id="Training-StudentAddress-Lab2" parent="Uif-GridSection">
     <property name="headerText" value="Address"/>
     <property name="items">
       <list>
-        <bean parent="Uif-InputField" p:label="Address 1" p:propertyName="address1" p:required="true">
-          <property name="validCharactersConstraint">
-            <bean parent="AlphaNumericWithBasicPunc"/>
-          </property>
-
+        <bean parent="Uif-InputField" p:label="Address 1" p:propertyName="address1">
         </bean>
         <bean parent="Uif-InputField" p:label="Address 2" p:propertyName="address2">
-          <property name="validCharactersConstraint">
-            <bean parent="AlphaNumericWithBasicPunc"/>
-          </property>
-          <property name="dependencyConstraints">
-            <list>
-              <bean parent="PrerequisiteConstraint" p:propertyName="address1"/>
-            </list>
-          </property>
         </bean>
-        <bean parent="Uif-InputField" p:label="City" p:propertyName="city" p:required="true">
-          <property name="validCharactersConstraint">
-            <bean parent="AlphaPatternConstraint"/>
-          </property>
+        <bean parent="Uif-InputField" p:label="City" p:propertyName="city">
         </bean>
-        <bean parent="Uif-InputField" p:label="State" p:propertyName="state" p:required="true" p:maxLength="2"
-              p:minLength="2">
-          <property name="validCharactersConstraint">
-            <bean parent="AlphaPatternConstraint"/>
-          </property>
+        <bean parent="Uif-InputField" p:label="State" p:propertyName="state">
         </bean>
-        <bean parent="Uif-InputField" p:label="Zip" p:propertyName="zip" p:required="true" p:maxLength="10"
-              p:minLength="5" p:constraintText="Only [color=red]digits[/color] allowed.">
-          <property name="validCharactersConstraint">
-            <bean parent="ZipcodePatternConstraint"/>
-          </property>
-        </bean>
-      </list>
-    </property>
-  </bean>
-
-  <bean id="Training-StudentReferences-Lab2" parent="Uif-TableCollectionSection">
-    <property name="headerText" value="References"/>
-    <property name="instructionalText" value="Please list any references we can contact"/>
-    <property name="layoutManager.generateAutoSequence" value="true"/>
-    <property name="propertyName" value="references"/>
-    <property name="collectionObjectClass" value="org.kuali.rice.krworkshop.TrainingApplicationReference"/>
-    <property name="items">
-      <list>
-        <bean parent="Uif-InputField" p:label="Name" p:propertyName="name" p:required="true"/>
-        <bean parent="Uif-InputField" p:label="Phone" p:propertyName="phone" p:required="true">
-          <property name="control">
-            <bean parent="Uif-TextControl" p:watermarkText="###-###-####"/>
-          </property>
-          <property name="validCharactersConstraint">
-            <bean parent="PhoneNumberPatternConstraint"/>
-          </property>
-        </bean>
-        <bean parent="Uif-InputField" p:label="Address" p:propertyName="address">
-          <property name="control">
-            <bean parent="Uif-TextAreaControl"/>
-          </property>
-        </bean>
-        <bean parent="Uif-InputField" p:label="Relationship" p:propertyName="relationship" p:required="true">
-          <property name="control">
-            <bean parent="Uif-DropdownControl">
-              <property name="options">
-                <list>
-                  <bean parent="Uif-KeyLabelPair" p:key="friend" p:value="Friend"/>
-                  <bean parent="Uif-KeyLabelPair" p:key="co-worker" p:value="Co-Worker"/>
-                  <bean parent="Uif-KeyLabelPair" p:key="teacher" p:value="Teacher"/>
-                </list>
-              </property>
-            </bean>
-          </property>
+        <bean parent="Uif-InputField" p:label="Zip" p:propertyName="zip">
         </bean>
       </list>
     </property>
