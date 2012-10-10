@@ -66,6 +66,7 @@
         <bean parent="Training-StudentInfo-Lab7"/>
         <bean parent="Training-StudentAddress-Lab7"/>
         <bean parent="Training-StudentReferences-Lab7"/>
+		<bean parent="Training-PreviousEducation-Lab7"/>
         <bean parent="Uif-Message">
           <property name="messageText"
                     value="Click [0] to get a full list of additional documents required."/>
