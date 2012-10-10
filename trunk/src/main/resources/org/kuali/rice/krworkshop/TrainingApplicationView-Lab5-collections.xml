@@ -65,7 +65,6 @@
         <bean parent="Training-CampusInfo-Lab5"/>
         <bean parent="Training-StudentInfo-Lab5"/>
         <bean parent="Training-StudentAddress-Lab5"/>
-        <bean parent="Training-StudentReferences-Lab5"/>
         <bean parent="Uif-Message">
           <property name="messageText"
                     value="Click [0] to get a full list of additional documents required."/>
@@ -270,45 +269,6 @@
               p:minLength="5" p:constraintText="Only [color=red]digits[/color] allowed.">
           <property name="validCharactersConstraint">
             <bean parent="ZipcodePatternConstraint"/>
-          </property>
-        </bean>
-      </list>
-    </property>
-  </bean>
-
-  <bean id="Training-StudentReferences-Lab5" parent="Uif-TableCollectionSection">
-    <property name="headerText" value="References"/>
-    <property name="instructionalText" value="Please list any references we can contact"/>
-    <property name="layoutManager.generateAutoSequence" value="true"/>
-    <property name="propertyName" value="references"/>
-    <property name="collectionObjectClass" value="org.kuali.rice.krworkshop.TrainingApplicationReference"/>
-    <property name="items">
-      <list>
-        <bean parent="Uif-InputField" p:label="Name" p:propertyName="name" p:required="true"/>
-        <bean parent="Uif-InputField" p:label="Phone" p:propertyName="phone" p:required="true">
-          <property name="control">
-            <bean parent="Uif-TextControl" p:watermarkText="###-###-####"/>
-          </property>
-          <property name="validCharactersConstraint">
-            <bean parent="PhoneNumberPatternConstraint"/>
-          </property>
-        </bean>
-        <bean parent="Uif-InputField" p:label="Address" p:propertyName="address">
-          <property name="control">
-            <bean parent="Uif-TextAreaControl"/>
-          </property>
-        </bean>
-        <bean parent="Uif-InputField" p:label="Relationship" p:propertyName="relationship" p:required="true">
-          <property name="control">
-            <bean parent="Uif-DropdownControl">
-              <property name="options">
-                <list>
-                  <bean parent="Uif-KeyLabelPair" p:key="friend" p:value="Friend"/>
-                  <bean parent="Uif-KeyLabelPair" p:key="co-worker" p:value="Co-Worker"/>
-                  <bean parent="Uif-KeyLabelPair" p:key="teacher" p:value="Teacher"/>
-                </list>
-              </property>
-            </bean>
           </property>
         </bean>
       </list>
