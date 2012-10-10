@@ -112,8 +112,7 @@
             </bean>
           </property>
         </bean>
-        <bean parent="Uif-InputField-LabelTop" p:label="Campus" p:propertyName="campus"
-              p:progressiveRender="@{#dp.college eq 'art' or #dp.college eq 'csc'}">
+        <bean parent="Uif-InputField-LabelTop" p:label="Campus" p:propertyName="campus">
           <property name="control">
             <bean parent="Uif-DropdownControl">
               <property name="options">
