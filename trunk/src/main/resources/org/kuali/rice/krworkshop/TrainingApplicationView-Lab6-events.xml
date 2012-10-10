@@ -292,7 +292,7 @@
     <property name="instructionalText" value="Please list any references we can contact"/>
     <property name="layoutManager.generateAutoSequence" value="true"/>
     <property name="propertyName" value="references"/>
-    <property name="collectionObjectClass" value="edu.sampleu.demo.kitchensink.TrainingApplicationReference"/>
+    <property name="collectionObjectClass" value="org.kuali.rice.krworkshop.TrainingApplicationReference"/>
     <property name="layoutManager.separateAddLine" value="true" />
     <property name="layoutManager.addLineGroup.layoutManager.numberOfColumns" value="8" />
     <property name="items">
@@ -330,7 +330,7 @@
 
   <bean id="Training-PreviousEducation-Lab6" parent="Uif-Disclosure-StackedCollectionSection">
     <property name="headerText" value="Previous Education" />
-    <property name="collectionObjectClass" value="edu.sampleu.demo.kitchensink.TrainingApplicationPreviousEducation" />
+    <property name="collectionObjectClass" value="org.kuali.rice.krworkshop.TrainingApplicationPreviousEducation" />
     <property name="propertyName" value="previousEducation" />
     <property name="layoutManager.summaryTitle" value="Course" />
     <property name="layoutManager.summaryFields" value="course,university" />
