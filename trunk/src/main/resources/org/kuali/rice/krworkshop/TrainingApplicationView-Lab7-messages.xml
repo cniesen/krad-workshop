@@ -46,13 +46,6 @@
         <value>js/application.js</value>
       </list>
     </property>
-    <property name="footer.items">
-      <list>
-        <bean parent="Uif-PrimaryActionButton" p:actionLabel="Submit" p:methodToCall="submit"
-              p:performClientSideValidation="true"/>
-        <bean parent="Uif-SecondaryActionButton" p:actionLabel="Clear all" p:actionScript="clearAll()"/>
-      </list>
-    </property>
   </bean>
 
   <!-- Alternate version of this view, only changing the theme -->
@@ -72,16 +65,17 @@
         <bean parent="Training-StudentAddress-Lab7"/>
         <bean parent="Training-StudentReferences-Lab7"/>
 		<bean parent="Training-PreviousEducation-Lab7"/>
-        <bean parent="Uif-Message">
-          <property name="messageText"
-                    value="Click [0] to get a full list of additional documents required."/>
-          <property name="inlineComponents">
-            <list>
-              <bean parent="Uif-Link" p:href="http://www.kuali.org" p:linkText="here"/>
-            </list>
-          </property>
-        </bean>
       </list>
+    </property>
+    <property name="footer">
+      <bean parent="Uif-FooterBase">
+        <property name="items">
+          <list>
+            <bean parent="Uif-PrimaryActionButton" p:render="@{!#view.readOnly}"/>
+            <bean parent="Uif-ActionLink" p:render="@{!#view.readOnly}"/>
+          </list>
+        </property>
+      </bean>
     </property>
   </bean>
 
@@ -242,6 +236,7 @@
               </property>
             </bean>
           </property>
+          <property name="readOnlyDisplayReplacement" value="@{ethnicity.toString()}"/>
         </bean>
       </list>
     </property>
