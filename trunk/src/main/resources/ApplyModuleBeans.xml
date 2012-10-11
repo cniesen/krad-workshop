@@ -68,6 +68,7 @@
         <value>classpath:org/kuali/rice/krworkshop/TrainingApplicationView-Lab4-progressive.xml</value>
         <value>classpath:org/kuali/rice/krworkshop/TrainingApplicationView-Lab5-collections.xml</value>
         <value>classpath:org/kuali/rice/krworkshop/TrainingApplicationView-Lab6-events.xml</value>
+        <value>classpath:org/kuali/rice/krworkshop/TrainingApplicationView-Lab7-messages.xml</value>
         <value>classpath:org/kuali/rice/krworkshop/TestApplicationView.xml</value>
       </list>
     </property>
