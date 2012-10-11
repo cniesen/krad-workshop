@@ -26,6 +26,7 @@ This file contains custom application specific portal content.
 <div class="body">
 
   <ul class="chan">
+      Code Labs:
       <li><a class="portal_link" target="_blank" href="${ConfigProperties.application.url}/kr-krad/collegeapp?viewId=Training-CollegeApplicationView-Lab1&methodToCall=start" />Kuali University - Lab 1: Components and Containers</a></li>
       <li><a class="portal_link" target="_blank" href="${ConfigProperties.application.url}/kr-krad/collegeapp?viewId=Training-CollegeApplicationView-Lab2&methodToCall=start" />Kuali University - Lab 2: Validation </a></li>
       <li><a class="portal_link" target="_blank" href="${ConfigProperties.application.url}/kr-krad/collegeapp?viewId=Training-CollegeApplicationView-Lab3&methodToCall=start" />Kuali University - Lab 3: Actions and Custom Controllers</a></li>
@@ -34,11 +35,8 @@ This file contains custom application specific portal content.
       <li><a class="portal_link" target="_blank" href="${ConfigProperties.application.url}/kr-krad/collegeapp?viewId=Training-CollegeApplicationView-Lab6&methodToCall=start" />Kuali University - Lab 6: Event Handling</a></li>
       <li><a class="portal_link" target="_blank" href="${ConfigProperties.application.url}/kr-krad/collegeapp?viewId=Training-CollegeApplicationView-Lab7&methodToCall=start" />Kuali University - Lab 7: Rich Messages</a></li>
 	  <br><br><br>
-	  <li>Complete Page:</li>
+	  Complete Page:
       <li><a class="portal_link" target="_blank" href="${ConfigProperties.application.url}/kr-krad/collegeapp?viewId=Training-CollegeApplicationView&methodToCall=start" />Kuali University - Apply Now!</a></li>
-	  <br><br><br>
-	  <br><br><br>
-      <li><a class="portal_link" target="_blank" href="${ConfigProperties.application.url}/kr-krad/my-test-page?viewId=CollegeApplicationView&methodToCall=start" />Very Dull Test Page</a></li>
   </ul>
 
 </div>

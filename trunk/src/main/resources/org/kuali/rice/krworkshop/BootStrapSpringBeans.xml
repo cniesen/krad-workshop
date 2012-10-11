@@ -131,7 +131,5 @@
 
 
 	<import resource="classpath:ApplyModuleBeans.xml"/>
-  <!--an application specific service-->
-  <bean id="productService" class="org.kuali.rice.krworkshop.MultiplicationProductServiceImpl" />
-
+  
 </beans>
