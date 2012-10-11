@@ -6,3 +6,7 @@ function clearAll(){
 	window.scrollTo(0,0);
 	jQuery(".uif-control:first").focus();*/
 }
+
+function setSchoolColors(c){
+	jq('#'+'Training-CollegeApplicationView-Lab6').animate({backgroundColor: c},1500);
+}

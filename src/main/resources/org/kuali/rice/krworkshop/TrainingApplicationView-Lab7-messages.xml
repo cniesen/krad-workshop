@@ -41,6 +41,11 @@
     <property name="theme">
       <bean parent="Uif-KradTheme"/>
     </property>
+    <property name="additionalScriptFiles">
+      <list>
+        <value>js/application.js</value>
+      </list>
+    </property>
     <property name="footer.items">
       <list>
         <bean parent="Uif-PrimaryActionButton" p:actionLabel="Submit" p:methodToCall="submit"
@@ -147,14 +152,12 @@
               </property>
             </bean>
           </property>
-        </bean>
-        
+        </bean>        
         <bean parent="Uif-InputField-LabelTop" p:label="Affiliate" p:propertyName="schoolColor" >
           <property name="control">
-            <bean parent="Uif-DropdownControl" p:options-ref="school-color-options" 
-             p:onChangeScript="var c=jq(this).val();
-					jq('#'+'Training-CollegeApplicationView-Lab7').animate({backgroundColor: c},100);
-					jq(this).animate({backgroundColor: c },1000);">
+            <bean parent="Uif-DropdownControl" p:options-ref="school-color-options">
+              <property name="onChangeScript" value="var c=jq(this).val();
+					jq('#'+'Training-CollegeApplicationView-Lab7').animate({backgroundColor: c},100);"/>
             </bean>
           </property>
         </bean>

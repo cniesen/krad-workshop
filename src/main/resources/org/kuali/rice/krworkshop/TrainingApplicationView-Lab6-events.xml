@@ -41,6 +41,11 @@
     <property name="theme">
       <bean parent="Uif-KradTheme"/>
     </property>
+    <property name="additionalScriptFiles">
+      <list>
+        <value>js/application.js</value>
+      </list>
+    </property>
     <property name="footer.items">
       <list>
         <bean parent="Uif-PrimaryActionButton" p:actionLabel="Submit" p:methodToCall="submit"
@@ -145,16 +150,6 @@
                   </bean>
                 </list>
               </property>
-            </bean>
-          </property>
-        </bean>
-        
-        <bean parent="Uif-InputField-LabelTop" p:label="Affiliate" p:propertyName="schoolColor" >
-          <property name="control">
-            <bean parent="Uif-DropdownControl" p:options-ref="school-color-options" 
-             p:onChangeScript="var c=jq(this).val();
-					jq('#'+'Training-CollegeApplicationView-Lab6').animate({backgroundColor: c},100);
-					jq(this).animate({backgroundColor: c },1000);">
             </bean>
           </property>
         </bean>
@@ -361,5 +356,16 @@
     <bean parent="Uif-KeyLabelPair" p:key="#024731" p:value="University of Hawaii"/>
     <bean parent="Uif-KeyLabelPair" p:key="#6A7F10" p:value="Portland State"/>       
   </util:list>
+  
+<!-- *** Lab 6: Step: 9 ***-->
+<!--         
+        <bean parent="Uif-InputField-LabelTop" p:label="Affiliation" p:propertyName="schoolColor" >
+          <property name="control">
+            <bean parent="Uif-DropdownControl" p:options-ref="school-color-options">
+              <property name="onChangeScript" value="setSchoolColors(jq(this).val());" />
+            </bean>
+          </property>
+        </bean>
 
+ -->
 </beans>
