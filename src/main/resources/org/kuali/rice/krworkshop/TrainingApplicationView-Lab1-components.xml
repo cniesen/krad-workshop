@@ -43,14 +43,6 @@
     <property name="theme">
       <bean parent="Uif-ClassicKnsTheme"/>
     </property>
-    <!-- Lab 1 - Step 2: Uncomment footer comments -->
-    <!-- 
-    <property name="footer.items">
-      <list>
- 		<bean parent="Uif-Message" p:messageText="TODO: Put some action buttons here!"/>
-      </list>
-    </property>
-    --> 
   </bean>
   
   <!-- Alternate version of this view, only changing the theme -->
@@ -74,18 +66,6 @@
         <bean parent="Training-CampusInfo-Lab1"/>
         -->
         <!-- Lab 1 - Step 6: Create new sections with parent 'Training-StudentInfo-Lab1' and 'Training-StudentAddress-Lab1' -->
-        <!-- Lab 1 - Step 7: Add Additional Documents Message to the screen -->
-        <!-- 
-        <bean parent="Uif-Message">
-          <property name="messageText"
-                    value="Click [0] to get a full list of additional documents required."/>
-          <property name="inlineComponents">
-            <list>
-              <bean parent="Uif-Link" p:href="http://www.kuali.org" p:linkText="here"/>
-            </list>
-          </property>
-        </bean>
-        -->
       </list>
     </property>
   </bean>
@@ -136,7 +116,7 @@
 
   <bean id="Training-StudentInfo-Lab1" parent="Uif-HorizontalBoxSection">
     <property name="headerText" value="About Me"/>
-    <property name="instructionalText" value="Please fill out this form [b]completely[/b]"/>
+    <property name="instructionalText" value="Please fill out this form completely"/>
     <property name="items">
       <list>
         <ref bean="Training-StudentInfo-Group1-Lab1"/>
@@ -204,7 +184,10 @@
                   <bean parent="Uif-KeyLabelPair" p:key="white" p:value="Non-hispanic White"/>
                 </list>
               </property>
-         </bean>
+            </bean>
+          </property>
+          <property name="readOnlyDisplayReplacement" value="@{ethnicity.toString()}"/>
+        </bean>
          -->
       </list>
     </property>

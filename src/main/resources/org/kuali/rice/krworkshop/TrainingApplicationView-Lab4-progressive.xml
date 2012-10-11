@@ -41,11 +41,9 @@
     <property name="theme">
       <bean parent="Uif-KradTheme"/>
     </property>
-    <property name="footer.items">
+    <property name="additionalScriptFiles">
       <list>
-        <bean parent="Uif-PrimaryActionButton" p:actionLabel="Submit" p:methodToCall="submit"
-              p:performClientSideValidation="true"/>
-        <bean parent="Uif-SecondaryActionButton" p:actionLabel="Clear all" p:actionScript="clearAll()"/>
+        <value>js/application.js</value>
       </list>
     </property>
   </bean>
@@ -65,16 +63,17 @@
         <bean parent="Training-CampusInfo-Lab4"/>
         <bean parent="Training-StudentInfo-Lab4"/>
         <bean parent="Training-StudentAddress-Lab4"/>
-        <bean parent="Uif-Message">
-          <property name="messageText"
-                    value="Click [0] to get a full list of additional documents required."/>
-          <property name="inlineComponents">
-            <list>
-              <bean parent="Uif-Link" p:href="http://www.kuali.org" p:linkText="here"/>
-            </list>
-          </property>
-        </bean>
       </list>
+    </property>
+    <property name="footer">
+      <bean parent="Uif-FooterBase">
+        <property name="items">
+          <list>
+            <bean parent="Uif-PrimaryActionButton" p:render="@{!#view.readOnly}"/>
+            <bean parent="Uif-ActionLink" p:render="@{!#view.readOnly}"/>
+          </list>
+        </property>
+      </bean>
     </property>
   </bean>
 
@@ -151,7 +150,7 @@
 
   <bean id="Training-StudentInfo-Lab4" parent="Uif-HorizontalBoxSection">
     <property name="headerText" value="About Me"/>
-    <property name="instructionalText" value="Please fill out this form [b]completely[/b]"/>
+    <property name="instructionalText" value="Please fill out this form completely"/>
     <property name="items">
       <list>
         <ref bean="Training-StudentInfo-Group1-Lab4"/>
@@ -211,7 +210,7 @@
           </property>
         </bean>
         <bean parent="Uif-InputField" p:label="Race/Ethnicity" p:propertyName="ethnicity" p:required="true"
-              p:instructionalText="Please select the [link='http://kuali.org']ethnicity/race(s)[/link] you most closely identify yourself as">
+              p:instructionalText="Please select the ethnicity/race(s) you most closely identify yourself as">
           <property name="control">
             <bean parent="Uif-VerticalCheckboxesControl">
               <property name="options">
@@ -221,17 +220,15 @@
                   <bean parent="Uif-KeyLabelPair" p:key="asian" p:value="Asian / Pacific Islander"/>
                   <bean parent="Uif-KeyLabelPair" p:key="hispanic" p:value="Hispanic"/>
                   <bean parent="Uif-KeyLabelPair" p:key="white" p:value="Non-hispanic White"/>
-                  <bean parent="Uif-KeyLabelPair" p:key="other" p:value="Other. Specify: [id=Training-OtherEthnicity]"/>
                 </list>
               </property>
             </bean>
           </property>
+          <property name="readOnlyDisplayReplacement" value="@{ethnicity.toString()}"/>
         </bean>
       </list>
     </property>
   </bean>
-
-  <bean id="Training-OtherEthnicity-Lab4" parent="Uif-InputField" p:propertyName="otherEthnicity"/>
 
   <bean id="Training-StudentAddress-Lab4" parent="Uif-GridSection">
     <property name="headerText" value="Address"/>
@@ -265,7 +262,7 @@
           </property>
         </bean>
         <bean parent="Uif-InputField" p:label="Zip" p:propertyName="zip" p:required="true" p:maxLength="10"
-              p:minLength="5" p:constraintText="Only [color=red]digits[/color] allowed.">
+              p:minLength="5" p:constraintText="Only digits allowed.">
           <property name="validCharactersConstraint">
             <bean parent="ZipcodePatternConstraint"/>
           </property>
