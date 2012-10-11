@@ -69,8 +69,12 @@
       <bean parent="Uif-FooterBase">
         <property name="items">
           <list>
-            <bean parent="Uif-PrimaryActionButton" p:render="@{!#view.readOnly}"/>
-            <bean parent="Uif-ActionLink" p:render="@{!#view.readOnly}"/>
+            <bean parent="Uif-PrimaryActionButton" p:render="@{!#view.readOnly}"
+                  p:actionLabel="Submit" p:methodToCall="submit"
+                  p:performClientSideValidation="true" p:preSubmitCall="return confirm('Submit?');"
+                  p:successCallback="alert('Submit Successful')"/>
+            <bean parent="Uif-ActionLink" p:render="@{!#view.readOnly}"
+                  p:actionLabel="Clear all" p:actionScript="clearAll()"/>
           </list>
         </property>
       </bean>
