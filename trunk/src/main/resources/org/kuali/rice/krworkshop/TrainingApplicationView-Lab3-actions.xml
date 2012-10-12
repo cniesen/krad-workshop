@@ -42,6 +42,11 @@
     <property name="theme">
       <bean parent="Uif-KradTheme"/>
     </property>
+    <property name="additionalCssFiles">
+      <list>
+        <value>css/application.css</value>
+      </list>
+    </property>
 <!--    <property name="additionalScriptFiles">
       <list>
         <value>js/application.js</value>
