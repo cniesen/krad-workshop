@@ -46,20 +46,7 @@
         <value>css/application.css</value>
       </list>
     </property>
-    <property name="footer">
-      <bean parent="Uif-FooterBase">
-        <property name="items">
-          <list>
-            <bean parent="Uif-PrimaryActionButton" p:render="@{!#view.readOnly}"
-                  p:actionLabel="Submit" p:methodToCall="submit"
-                  p:performClientSideValidation="true" p:preSubmitCall="return confirm('Submit?');"
-                  p:successCallback="alert('Submit Successful')"/>
-            <bean parent="Uif-ActionLink" p:render="@{!#view.readOnly}"
-                  p:actionLabel="Clear all" p:actionScript="clearAll()"/>
-          </list>
-        </property>
-      </bean>
-    </property>
+    
   </bean>
 
   <!-- Alternate version of this view, only changing the theme -->
@@ -83,8 +70,12 @@
       <bean parent="Uif-FooterBase">
         <property name="items">
           <list>
-            <bean parent="Uif-PrimaryActionButton" p:render="@{!#view.readOnly}"/>
-            <bean parent="Uif-ActionLink" p:render="@{!#view.readOnly}"/>
+            <bean parent="Uif-PrimaryActionButton" p:render="@{!#view.readOnly}"
+                  p:actionLabel="Submit" p:methodToCall="submit"
+                  p:performClientSideValidation="true" p:preSubmitCall="return confirm('Submit?');"
+                  p:successCallback="alert('Submit Successful')"/>
+            <bean parent="Uif-ActionLink" p:render="@{!#view.readOnly}"
+                  p:actionLabel="Clear all" p:actionScript="clearAll()"/>
           </list>
         </property>
       </bean>
@@ -126,7 +117,7 @@
           </property>
         </bean>
         <bean parent="Uif-InputField-LabelTop" p:label="Campus" p:propertyName="campus"
-              p:progressiveRender="college eq 'art' or college eq 'csc'">
+              p:progressiveRender="@{college eq 'art' or college eq 'csc'}">
           <property name="control">
             <bean parent="Uif-DropdownControl">
               <property name="options">
@@ -277,7 +268,7 @@
           </property>
         </bean>
         <bean parent="Uif-InputField" p:label="Zip" p:propertyName="zip" p:required="true" p:maxLength="10"
-              p:minLength="5" p:constraintText="Only digits allowed.">
+              p:minLength="5">
           <property name="validCharactersConstraint">
             <bean parent="ZipcodePatternConstraint"/>
           </property>

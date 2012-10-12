@@ -271,7 +271,7 @@
           </property>
         </bean>
         <bean parent="Uif-InputField" p:label="Zip" p:propertyName="zip" p:required="true" p:maxLength="10"
-              p:minLength="5" p:constraintText="Only digits allowed.">
+              p:minLength="5">
           <property name="validCharactersConstraint">
             <bean parent="ZipcodePatternConstraint"/>
           </property>

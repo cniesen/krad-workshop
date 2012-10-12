@@ -43,7 +43,7 @@
     <property name="theme">
       <bean parent="Uif-ClassicKnsTheme"/>
     </property>
-    <!-- Lab 1 - Step 2: Uncomment additionalCssFiles -->
+    <!-- Lab 1 - Step 3: Uncomment additionalCssFiles -->
     <!-- property name="additionalCssFiles">
       <list>
         <value>css/application.css</value>
