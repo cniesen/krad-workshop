@@ -41,6 +41,11 @@
     <property name="theme">
       <bean parent="Uif-KradTheme"/>
     </property>
+    <property name="additionalCssFiles">
+      <list>
+        <value>css/application.css</value>
+      </list>
+    </property>
   </bean>
 
   <!-- Alternate version of this view, only changing the theme -->

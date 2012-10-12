@@ -46,6 +46,11 @@
         <value>js/application.js</value>
       </list>
     </property>
+    <property name="additionalCssFiles">
+      <list>
+        <value>css/application.css</value>
+      </list>
+    </property>
   </bean>
 
   <!-- Alternate version of this view, only changing the theme -->
@@ -306,7 +311,7 @@
     <property name="propertyName" value="references"/>
     <property name="collectionObjectClass" value="org.kuali.rice.krworkshop.TrainingApplicationReference"/>
     <property name="layoutManager.separateAddLine" value="true" />
-    <property name="layoutManager.addLineGroup.layoutManager.numberOfColumns" value="8" />
+    <property name="layoutManager.addLineGroup.layoutManager.numberOfColumns" value="4"/>
     <property name="items">
       <list>
         <bean parent="Uif-InputField" p:label="Name" p:propertyName="name" p:required="true"/>

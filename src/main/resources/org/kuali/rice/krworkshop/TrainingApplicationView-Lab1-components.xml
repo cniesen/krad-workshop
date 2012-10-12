@@ -39,10 +39,16 @@
         <ref bean="Training-CollegeApplicationPage-Lab1"/>
       </list>
     </property>
-     <!-- Lab 1 - Step 3: Update theme from Uif-ClassicKnsTheme to Uif-KradTheme -->
+    <!-- Lab 1 - Step 3: Update theme from Uif-ClassicKnsTheme to Uif-KradTheme -->
     <property name="theme">
       <bean parent="Uif-ClassicKnsTheme"/>
     </property>
+    <!-- Lab 1 - Step 2: Uncomment additionalCssFiles -->
+    <!-- property name="additionalCssFiles">
+      <list>
+        <value>css/application.css</value>
+      </list>
+    </property-->
   </bean>
   
   <!-- Alternate version of this view, only changing the theme -->
