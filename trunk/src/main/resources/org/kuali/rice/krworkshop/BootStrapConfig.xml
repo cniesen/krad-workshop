@@ -58,4 +58,6 @@ in configuration files outside of the project.
   <param name="config.location">classpath:META-INF/common-config-locations.xml</param>
   <param name="config.location">${alt.config.location}</param>
   <param name="version">krworkshop :: ${project.version} :: ${kuali.build.timestamp}</param>
+<param name="rice.kr.additionalSpringFiles">classpath:org/kuali/rice/devtools/krad/datadictionary/ReloadingDataDictionarySpringBeans.xml</param>
+
 </config>
