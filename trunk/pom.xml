@@ -85,6 +85,13 @@
     <plugin.compiler.source>1.6</plugin.compiler.source>
     <plugin.compiler.target>1.6</plugin.compiler.target>
   </properties>
+  
+ <repositories>
+   <repository>
+     <id>kuali-public</id>
+     <url>http://nexus.kuali.org/content/groups/public</url>
+   </repository>
+ </repositories>
 
   <build>
     <!--
