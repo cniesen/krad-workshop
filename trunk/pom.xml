@@ -528,6 +528,12 @@
       <version>${rice.version}</version>
       <type>war</type>
     </dependency>
+    <dependency>
+      <groupId>org.kuali.rice</groupId>
+      <artifactId>rice-development-tools</artifactId>
+      <version>${rice.version}</version>
+      <type>war</type>
+    </dependency>
 
     <!-- third party libraries -->
     <dependency>
